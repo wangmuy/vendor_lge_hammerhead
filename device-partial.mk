@@ -13,10 +13,11 @@
 # limitations under the License.
 
 # LGE blob(s) necessary for Hammerhead hardware
+#    vendor/lge/hammerhead/proprietary/qcrilmsgtunnel.apk:system/app/qcrilmsgtunnel.apk:lge 
+#    vendor/lge/hammerhead/proprietary/SprintHiddenMenu.apk:system/app/SprintHiddenMenu.apk:lge 
+#    vendor/lge/hammerhead/proprietary/UpdateSetting.apk:system/app/UpdateSetting.apk:lge 
+#    vendor/lge/hammerhead/proprietary/OmaDmclient.apk:/system/app/OmaDmclient.apk:lge 
 PRODUCT_COPY_FILES := \
-    vendor/lge/hammerhead/proprietary/qcrilmsgtunnel.apk:system/app/qcrilmsgtunnel.apk:lge \
-    vendor/lge/hammerhead/proprietary/SprintHiddenMenu.apk:system/app/SprintHiddenMenu.apk:lge \
-    vendor/lge/hammerhead/proprietary/UpdateSetting.apk:system/app/UpdateSetting.apk:lge \
     vendor/lge/hammerhead/proprietary/Bluetooth_cal.acdb:system/etc/Bluetooth_cal.acdb:lge \
     vendor/lge/hammerhead/proprietary/General_cal.acdb:system/etc/General_cal.acdb:lge \
     vendor/lge/hammerhead/proprietary/Global_cal.acdb:system/etc/Global_cal.acdb:lge \
@@ -42,7 +43,6 @@ PRODUCT_COPY_FILES := \
     vendor/lge/hammerhead/proprietary/keymaster.mdt:system/vendor/firmware/keymaster/keymaster.mdt:lge \
     vendor/lge/hammerhead/proprietary/libAKM8963.so:system/vendor/lib/libAKM8963.so:lge \
     vendor/lge/hammerhead/proprietary/DxHDCP.cfg:/system/etc/DxHDCP.cfg:lge \
-    vendor/lge/hammerhead/proprietary/OmaDmclient.apk:/system/app/OmaDmclient.apk:lge \
     vendor/lge/hammerhead/proprietary/dxhdcp2.b00:/system/vendor/firmware/discretix/dxhdcp2.b00:lge \
     vendor/lge/hammerhead/proprietary/dxhdcp2.b01:/system/vendor/firmware/discretix/dxhdcp2.b01:lge \
     vendor/lge/hammerhead/proprietary/dxhdcp2.b02:/system/vendor/firmware/discretix/dxhdcp2.b02:lge \
@@ -58,4 +58,6 @@ PRODUCT_COPY_FILES := \
     vendor/lge/hammerhead/proprietary/libvss_nv_idl.so:/system/vendor/lib/libvss_nv_idl.so:lge \
     vendor/lge/hammerhead/proprietary/libvss_nv_iface.so:/system/vendor/lib/libvss_nv_iface.so:lge \
     vendor/lge/hammerhead/proprietary/vss_init:/system/vendor/bin/vss_init:lge \
+
+PRODUCT_PACKAGES += $(foreach fpath,$(shell ls vendor/lge/hammerhead/proprietary/*.apk),$(basename $(notdir $(fpath))))
 
